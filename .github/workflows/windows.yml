@@ -1,0 +1,15 @@
+name: Windows
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Setup NVM
+    runs-on: windows-latest
+    steps:
+    - name: Check dir and go
+      shell: pwsh
+      run: |
+        ls $Env:SystemRoot/System32/
+        git clone https://github.com/MelodyXman/Hadoop-MR.git
+        cd Hadoop-MR
+        mvn install
